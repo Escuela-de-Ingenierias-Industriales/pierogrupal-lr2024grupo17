@@ -64,8 +64,6 @@ La primera de las señales ha sido una señal rampa.
 
 ![image](https://github.com/user-attachments/assets/7c3d587e-ddff-4816-8d2b-f0f4d1a48d45)
 
-
-
 La segunda ha sido un tren de pulsos.
 
 ![image](https://github.com/user-attachments/assets/972f6867-54b0-48ce-8cc0-8fba94cec83c)
@@ -84,8 +82,23 @@ Reunidos estos datos, creamos un modelo que permita elegir si se está en modelo
 
 ![image](https://github.com/user-attachments/assets/64e0e8e0-f09d-4883-be5c-3b7e4904565d)
 
-
 ![image](https://github.com/user-attachments/assets/932be7aa-ba15-466c-b2ab-3d91860f9050)
 
 La otra opción sería programando el PIERO con una función de programación de bajo nivel en Simulink. Esta opción utiliza la herramienta S-Function Builder, almacenando un programa en C que permite hacer la lectura de los encoders. Esto se ha probado con la función proporcionada en los vídeos de clase, pero al final se ha optado por la solución de la lectura de los encoders.
+
+
+# Bucle Abierto
+
+Ahora, se integra todo en un sistema de bucle abierto, que contiene las partes de Hardware y Software del PIERO.
+
+El modelo del bucle abierto se puede ver a continuación, con el controlador en bucle abierto y el modelo de piero hardware ya mencionado anteriormente:
+
+![image](https://github.com/user-attachments/assets/54fdc3f7-0137-427e-9585-bbbc02107f94)
+
+A continuación se ve el controlador para el bucle abierto. Para dicho controlador se han utlizado dos tablas de consulta (Look-Up Tables), una para cada rueda del robot móvil.
+
+![image](https://github.com/user-attachments/assets/12066d33-f509-4d55-94b7-1718c332016c)
+
+
+# Bucle Cerrado
 
