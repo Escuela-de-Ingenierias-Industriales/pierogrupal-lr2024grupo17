@@ -109,25 +109,25 @@ En este modelo, se cambian las Look-Up Tables por las funciones de transferencia
 
 # Cinemática
 
-Teniendo en cuenta los modelos construidos anteriormente, se construyen los modelos cinemático directo (MCD) e inverso (MCI) del PIERO.
+Teniendo en cuenta los modelos construidos anteriormente, se construyen los modelos cinemático directo (MCD) e inverso (MCI) del PIERO, junto con la odometría.
 Con el modelo cinemático inverso se obtienen las velocidades de ambas ruedas a partir de las velocidades lineal y angular, mientras que el modelo cinemático directo hace la operación inversa. Luego se tiene el modelo de Odometría, que junto con los bloques anteriores permite controlar la posición y orientación del robot móvil.
 
-Modelo de cinemática completo:
+Modelo de cinemática completo: la entrada son las consignas de velocidad lineal y angular. Luego, se aplica el modelo cinemático inverso para obtener velocidades articulares y que el PIERO pueda leerlas. Después, se aplica el modelo cinemático directo para volver a obtener las velocidades cartesianas y obtener una representación en el plano XY del movimiento gracias a la odometría.
 
 ![image](https://github.com/user-attachments/assets/8005896c-c9c1-40ea-927a-56a910c8787d)
 
-Modelo cinemático inverso (MCI):
+Modelo cinemático inverso (MCI): convierte velocidades cartesianas en velocidades articulares.
 
 ![image](https://github.com/user-attachments/assets/801b69dc-9036-47a7-98d3-8863d6a74b23)
 
-Modelo cinemático directo (MCD):
+Modelo cinemático directo (MCD): convierte velocidades articulares en velocidades cartesianas.
 
 ![image](https://github.com/user-attachments/assets/5e3a5b8b-bc85-458d-89ae-61954b52cb6b)
 
-Sistema de odometría:
+Sistema de Odometría: obtiene una representación en un plano XY del movimiento del robot móvil, por lo que permite observar la trayectoria del robot. Este bloque se basa en las siguientes ecuaciones:
+Vx = v*cos(v)   ;   Vy = v*sin(v)   ;   w = w
 
 ![image](https://github.com/user-attachments/assets/6aaf62ce-aad0-474f-b888-2a31003121d1)
 
-
-
+# Control de Trayectorias
 
