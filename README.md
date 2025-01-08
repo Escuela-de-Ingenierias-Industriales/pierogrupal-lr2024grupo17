@@ -55,6 +55,36 @@ Hay varias opciones disponibles para la lectura de los codificadores. Una de ell
 
 Se ha creado otro modelo donde se añade un bloque de derivada discreta. Esto permite que se pueda convertir los flancos del encoder en velocidad en metros por segundo.
 
+# Identificación y simulación de los sistemas motor, comunicaciones serie y generador de señales en Simulink
+
+# Generador de señales en Simulink
+Para la simulación de los sistemas motor, se han usado dos tipos de señales creadas con el bloque "SignalBuilder". Las dos señales se pueden observar en las imágenes a continuación.
+
+La primera de las señales ha sido una señal rampa.
+
+![image](https://github.com/user-attachments/assets/7c3d587e-ddff-4816-8d2b-f0f4d1a48d45)
+
+
+
+La segunda ha sido un tren de pulsos.
+
+![image](https://github.com/user-attachments/assets/972f6867-54b0-48ce-8cc0-8fba94cec83c)
+
+
+# Identificación y Simulación de los sistemas motor
+Para simular los sistemas se ha creado este modelo en Simulink.
+
+![image](https://github.com/user-attachments/assets/c876555f-29b7-4974-b914-740155148c03)
+
+Este modelo contiene el bloque de "SignalBuilder" comentado anteriormente, junto con un subsistema llamado "PieroHW", que se corresponde con el modelo de Hardware del PIERO, estudiado en los puntos anteriores. También se han añadido unos bloques que guardan los datos de velocidad y PWM procedentes del PIERO. Estos datos son introducidos en la aplicación "System Identification", tanto los de la rueda derecha como la izquierda. Una vez hecho, se ve qué funciones de transferencia funcionan mejor, y se seleccionan y reúnen los coeficientes para las funciones de transferencia discretas de cada rueda.
+
+![image](https://github.com/user-attachments/assets/05b44d5c-1349-4995-b507-ecb53b27dcc0)
+
+Reunidos estos datos, creamos un modelo que permita elegir si se está en modelo de Piero Hardware, o en modelo de Piero con las funciones de transferencia. Este modelo es el indicado a continuación:
+
+![image](https://github.com/user-attachments/assets/64e0e8e0-f09d-4883-be5c-3b7e4904565d)
+
+
 ![image](https://github.com/user-attachments/assets/932be7aa-ba15-466c-b2ab-3d91860f9050)
 
 La otra opción sería programando el PIERO con una función de programación de bajo nivel en Simulink. Esta opción utiliza la herramienta S-Function Builder, almacenando un programa en C que permite hacer la lectura de los encoders. Esto se ha probado con la función proporcionada en los vídeos de clase, pero al final se ha optado por la solución de la lectura de los encoders.
