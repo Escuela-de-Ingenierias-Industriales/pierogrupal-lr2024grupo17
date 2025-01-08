@@ -192,7 +192,13 @@ En primer lugar, se definen los valores iniciales de las variables del programa.
 
 ### Trayectoria con aceleración limitada con evitación de obstáculos
 
+En este apartado final se modela el seguimiento de la trayectoria incorporando evitación de obstáculos mediante diagrama de estados, e incorporando limitación de aceleración. El diagrama de estados se encarga de detectar los obstáculos (utilizando la información de los sensores de ultrasonidos del PIERO, modelados anteriormente), de manera que se permuta entre navegación reactiva y navegación predeterminada (persecución pura) de la trayectoria dependiendo de si se detectan obstáculos en el camino. 
 
+El diagrama de estados para la evitación de obstáculos se puede ver a continuación:
+
+![image](https://github.com/user-attachments/assets/9139da15-4562-463c-97ab-7aa4d81de997)
+
+El modelo se puede ver a continuación:
 
 ![image](https://github.com/user-attachments/assets/cc06f514-baaf-4c2c-87c5-2145a0e2e0d1)
 
