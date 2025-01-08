@@ -131,3 +131,64 @@ Vx = v*cos(v)   ;   Vy = v*sin(v)   ;   w = w
 
 # Control de Trayectorias
 
+Para el control de trayectorias, se tienen varios métodos, los cuales se comentan a continuación.
+
+## Trayectoria con bloque de Signal Builder
+
+Teniendo en cuenta que la trayectoria es la siguiente:
+
+1. 4 metros en línea recta
+2. Giro antihorario 90º
+3. 12 metros en línea recta
+4. Giro horario 90º
+5. 0.8 metros en línea recta
+6. Giro antihorario 90º
+7. 2 metros en linea recta
+
+Se puede modelar la trayectoria del PIERO utilizando los bloques comentados en el apartado de cinemática, y utilizando como consigna de velocidades un bloque de "Signal Builder" que contenga las variaciones de velocidad lineal y angular en cada momento de la trayectoria. Este modelo no ha sido el final, ya que es muy poco óptimo porque se le tiene que indicar al robot la velocidad a cada instante, en vez de indicarle los puntos de la trayectoria por los que tiene que pasar (que es mucho más intuitivo).
+
+![image](https://github.com/user-attachments/assets/50ab91e4-5b4e-4252-827f-b95d2ca84976)
+
+El modelo de trayectoria con el bloque de "Signal Builder" es el siguiente:
+
+![image](https://github.com/user-attachments/assets/d83f3649-933a-4c2e-aab1-8fe108cef05b)
+
+## Trayectoria con Diagrama de Estados
+
+La segunda opción planteada es hacer un diagrama de estados, en el que cada estado refleje un momento de la trayectoria comentada anteriormente. Para hacer el diagrama, se ha utilizado la librería "StateFlow", con el bloque "Chart" para hacer dichos diagramas. A continuación se puede ver una imagen del diagrama de estados utilizado.
+
+![image](https://github.com/user-attachments/assets/05ef8f71-e86b-4ed3-a640-447a7a4a90eb)
+
+En el diagrama de estados se puede observar como cada estado se corresponde con cada uno de los puntos de la trayectoria. En cada estado, dependiendo de si se trata de un avance hacia delante, o un giro, se modifican los valores de velocidad lineal y angular dependiendo de lo que se requiera (avanzar hacia delante, o girar para la derecha/izquierda).
+A continuación, se inserta la imagen del modelo de control de trayectoria, incluyendo la correción de la orientación utilizando un controlador PD.
+
+![image](https://github.com/user-attachments/assets/36b1e9d7-7403-434a-91eb-1f89885d4b1e)
+
+# Seguimiento de trayectoria
+
+En esta parte, se sigue la trayectoria indicada anteriormente, pero se indica en forma de "waypoints". Es decir, se definen los puntos por los que el robot PIERO debe pasar, y se toman como datos de entrada. A partir de ahí, con la cinemática del robot implementada anteriormente y un sistema de persecución pura (que puede ser implementado con un bloque de la librería "Robotics System Toolbox", o mediante una "MFunction") se consigue el seguimiento de la trayectoria.
+
+## Trayectoria con PurePursuit y MFunction
+
+### Trayectoria con bloque "PurePursuit"
+
+En esta opción, se implementa el seguimiento de la trayectoria mediante el bloque "PurePursuit" de Simulink. En la imagen a continuación se puede ver el modelo:
+
+![image](https://github.com/user-attachments/assets/8e68aed2-37b3-40fb-b59c-93ec8274b793)
+
+El bloque de persecución pura de la librería crea consignas de velocidad linear y angular a partir de una serie de puntos ("waypoints"). De esta manera, actualiza en cada momento los comandos de velocidad que manda al robot.
+
+### Trayectoria con MFunction
+
+En este apartado, se hace lo mismo que en el apartado anterior, pero se utiliza un código de persecución pura redactado. Esto permite corregir 
+
+![image](https://github.com/user-attachments/assets/abe993fa-7847-47e0-97e7-d6dd92d3ad6e)
+
+
+### Trayectoria con aceleración limitada con evitación de obstáculos
+
+
+
+![image](https://github.com/user-attachments/assets/cc06f514-baaf-4c2c-87c5-2145a0e2e0d1)
+
+
