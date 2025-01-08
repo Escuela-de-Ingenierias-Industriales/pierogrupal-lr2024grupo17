@@ -180,15 +180,19 @@ El bloque de persecución pura de la librería crea consignas de velocidad linea
 
 ### Trayectoria con MFunction
 
-En este apartado, se hace lo mismo que en el apartado anterior, pero se utiliza un código de persecución pura redactado. Esto permite corregir 
+En este apartado, se hace lo mismo que en el apartado anterior, pero se utiliza un código de persecución pura redactado. Esto permite adquirir los datos de velocidad lineal, angular y orientación. De esta manera, se puede corregir la orientación con un controlador PD, y relacionarla con la velocidad angular.
 
 ![image](https://github.com/user-attachments/assets/abe993fa-7847-47e0-97e7-d6dd92d3ad6e)
 
+El código para la función se observa a continuación:
+
+![image](https://github.com/user-attachments/assets/6bd93ec8-0a86-4bd6-94e8-668bc8c460d6)
+
+En primer lugar, se definen los valores iniciales de las variables del programa. A continuación, se comprueba si en el instante actual se está en la trayectoria (no se ha alcanzado el número máximo de "waypoints"). Si es así, se calcula la distancia entre el punto actual y el siguiente. Si esta distancia es menor que "L" y siguen quedando puntos, se vuelve a calcular esta distancia. Cuando se llega al waypoint, se calcula el ángulo entre la posición actual y el siguiente "waypoint" de la trayectoria. En caso de que no queden "waypoints", se resetea la velocidad lineal a cero. Finalmente, se comprueba si el índice "i" es menor al número de "waypoints" de la trayectoria; en caso de ser así, el índice "il" de la salida será reduce en uno, ya que hemos recorrido un punto de más. En caso contrario, significa que todavía no hemos pasado un "waypoint", por lo que se mantiene el valor del índice "i".
 
 ### Trayectoria con aceleración limitada con evitación de obstáculos
 
 
 
 ![image](https://github.com/user-attachments/assets/cc06f514-baaf-4c2c-87c5-2145a0e2e0d1)
-
 
