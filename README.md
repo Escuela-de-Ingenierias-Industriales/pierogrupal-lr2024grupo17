@@ -203,4 +203,3 @@ Cuando se detecta algún obstáculo, se actualiza el valor de la variable de con
 El modelo se puede ver a continuación:
 
 ![image](https://github.com/user-attachments/assets/cc06f514-baaf-4c2c-87c5-2145a0e2e0d1)
-
