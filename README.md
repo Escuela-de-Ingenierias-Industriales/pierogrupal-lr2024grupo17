@@ -110,7 +110,7 @@ En este modelo, se cambian las Look-Up Tables por las funciones de transferencia
 # Cinemática
 
 Teniendo en cuenta los modelos construidos anteriormente, se construyen los modelos cinemático directo (MCD) e inverso (MCI) del PIERO, junto con la odometría.
-Con el modelo cinemático inverso se obtienen las velocidades de ambas ruedas a partir de las velocidades lineal y angular, mientras que el modelo cinemático directo hace la operación inversa. Luego se tiene el modelo de Odometría, que junto con los bloques anteriores permite controlar la posición y orientación del robot móvil.
+Con el modelo cinemático inverso se obtienen las velocidades de ambas ruedas a partir de las velocidades lineal y angular, mientras que el modelo cinemático directo hace la operación inversa. Luego se tiene el modelo de Odometría, que junto con los bloques anteriores permite estimar la posición y orientación del robot móvil.
 
 Modelo de cinemática completo: la entrada son las consignas de velocidad lineal y angular. Luego, se aplica el modelo cinemático inverso para obtener velocidades articulares y que el PIERO pueda leerlas. Después, se aplica el modelo cinemático directo para volver a obtener las velocidades cartesianas y obtener una representación en el plano XY del movimiento gracias a la odometría.
 
