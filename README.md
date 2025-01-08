@@ -47,9 +47,14 @@ Con los bloques explicados anteriormente, se crea un primer modelo de navegació
 
 Se utiliza el bloque de los sensores de ultrasonidos de entrada, que entra al bloque de señalización de los leds, para luego pasar al bloque que enciende el led RGB.
 
+# Lectura de los codificadores, y las funciones de programación de bajo nivel en Simulink (sfunction)
 
+Hay varias opciones disponibles para la lectura de los codificadores. Una de ellas es leer directamente con un bloque de "encoder" de la librería de Arduino en Simulink, describiendo el número de pin que corresponde a cada encoder. Esta opción es la que se ha usado para este proyecto. El modelo de Simulink creado para esto se puede ver a continuación. Del bloque del encoder salen los "ticks" leídos por el codificador.
 
+![image](https://github.com/user-attachments/assets/bbd55319-1905-446c-923a-3466c3eec95c)
 
-Project: Piero24
+Se ha creado otro modelo donde se añade un bloque de derivada discreta. Esto permite que se pueda convertir los flancos del encoder en velocidad en metros por segundo.
 
-Proyecto de Antonio Muñoz para el robot movil Piero
+![image](https://github.com/user-attachments/assets/932be7aa-ba15-466c-b2ab-3d91860f9050)
+
+La otra opción sería programando el PIERO con una función de programación de bajo nivel en Simulink. Esta opción utiliza la herramienta S-Function Builder, almacenando un programa en C que permite hacer la lectura de los encoders. Esto se ha probado con la función proporcionada en los vídeos de clase, pero al final se ha optado por la solución de la lectura de los encoders.
