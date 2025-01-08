@@ -102,3 +102,32 @@ A continuación se ve el controlador para el bucle abierto. Para dicho controlad
 
 # Bucle Cerrado
 
+En este modelo, se cambian las Look-Up Tables por las funciones de transferencia correspondientes a cada rueda. Además, se introduce una realimentación para reducir el error que se obtenía en el modelo de bucle abierto.
+
+![image](https://github.com/user-attachments/assets/d2ead320-e77d-487d-ad01-40263237ce6a)
+
+
+# Cinemática
+
+Teniendo en cuenta los modelos construidos anteriormente, se construyen los modelos cinemático directo (MCD) e inverso (MCI) del PIERO.
+Con el modelo cinemático inverso se obtienen las velocidades de ambas ruedas a partir de las velocidades lineal y angular, mientras que el modelo cinemático directo hace la operación inversa. Luego se tiene el modelo de Odometría, que junto con los bloques anteriores permite controlar la posición y orientación del robot móvil.
+
+Modelo de cinemática completo:
+
+![image](https://github.com/user-attachments/assets/8005896c-c9c1-40ea-927a-56a910c8787d)
+
+Modelo cinemático inverso (MCI):
+
+![image](https://github.com/user-attachments/assets/801b69dc-9036-47a7-98d3-8863d6a74b23)
+
+Modelo cinemático directo (MCD):
+
+![image](https://github.com/user-attachments/assets/5e3a5b8b-bc85-458d-89ae-61954b52cb6b)
+
+Sistema de odometría:
+
+![image](https://github.com/user-attachments/assets/6aaf62ce-aad0-474f-b888-2a31003121d1)
+
+
+
+
