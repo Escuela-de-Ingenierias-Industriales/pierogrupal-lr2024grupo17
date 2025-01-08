@@ -58,7 +58,7 @@ Se ha creado otro modelo donde se añade un bloque de derivada discreta. Esto pe
 # Identificación y simulación de los sistemas motor, comunicaciones serie y generador de señales en Simulink
 
 # Generador de señales en Simulink
-Para la simulación de los sistemas motor, se han usado dos tipos de señales creadas con el bloque "SignalBuilder". Las dos señales se pueden observar en las imágenes a continuación.
+Para la simulación de los sistemas motor, se han usado dos tipos de señales creadas con el bloque "Signal Builder". Las dos señales se pueden observar en las imágenes a continuación.
 
 La primera de las señales ha sido una señal rampa.
 
@@ -88,3 +88,4 @@ Reunidos estos datos, creamos un modelo que permita elegir si se está en modelo
 ![image](https://github.com/user-attachments/assets/932be7aa-ba15-466c-b2ab-3d91860f9050)
 
 La otra opción sería programando el PIERO con una función de programación de bajo nivel en Simulink. Esta opción utiliza la herramienta S-Function Builder, almacenando un programa en C que permite hacer la lectura de los encoders. Esto se ha probado con la función proporcionada en los vídeos de clase, pero al final se ha optado por la solución de la lectura de los encoders.
+
